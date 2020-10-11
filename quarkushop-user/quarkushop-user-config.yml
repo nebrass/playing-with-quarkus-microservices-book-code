@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quarkushop-user-config
+data:
+  application.properties: |-
+    mp.jwt.verify.publickey.location=http://keycloak-http.keycloak/auth/realms/quarkushop-realm/protocol/openid-connect/certs
+    mp.jwt.verify.issuer=http://keycloak-http.keycloak/auth/realms/quarkushop-realm
