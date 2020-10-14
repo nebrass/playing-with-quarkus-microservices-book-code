@@ -15,12 +15,21 @@ public interface OrderRestClient {
 
     @GET
     @Path("/{id}")
+    @CircuitBreaker(requestVolumeThreshold = 10, delay = 15000)
+    @Retry(maxRetries = 4)
+    @Timeout(500)
     Optional<OrderDto> findById(@PathParam Long id);
 
     @GET
     @Path("/payment/{id}")
+    @CircuitBreaker(requestVolumeThreshold = 10, delay = 15000)
+    @Retry(maxRetries = 4)
+    @Timeout(500)
     Optional<OrderDto> findByPaymentId(Long id);
 
     @POST
+    @CircuitBreaker(requestVolumeThreshold = 10, delay = 15000)
+    @Retry(maxRetries = 4)
+    @Timeout(500)
     OrderDto save(OrderDto order);
 }

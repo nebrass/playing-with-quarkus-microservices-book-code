@@ -6,3 +6,6 @@ data:
   application.properties: |-
     mp.jwt.verify.publickey.location=http://keycloak-http.keycloak/auth/realms/quarkushop-realm/protocol/openid-connect/certs
     mp.jwt.verify.issuer=http://keycloak-http.keycloak/auth/realms/quarkushop-realm
+    quarkus.log.handler.gelf.enabled=true
+    quarkus.log.handler.gelf.host=quarkushop-logstash
+    quarkus.log.handler.gelf.port=12201
