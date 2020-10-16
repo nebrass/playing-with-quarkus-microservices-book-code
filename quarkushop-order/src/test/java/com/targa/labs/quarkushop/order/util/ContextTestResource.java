@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.order;
+package com.targa.labs.quarkushop.order.util;
 
 import com.targa.labs.quarkushop.commons.security.TokenService;
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;

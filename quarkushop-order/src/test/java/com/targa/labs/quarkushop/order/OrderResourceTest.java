@@ -3,6 +3,7 @@ package com.targa.labs.quarkushop.order;
 import com.targa.labs.quarkushop.commons.utils.TestContainerResource;
 import com.targa.labs.quarkushop.order.domain.enums.CartStatus;
 import com.targa.labs.quarkushop.order.domain.enums.OrderStatus;
+import com.targa.labs.quarkushop.order.util.ContextTestResource;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.BeforeAll;
