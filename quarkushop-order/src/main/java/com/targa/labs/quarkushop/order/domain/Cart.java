@@ -25,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "carts")
 public class Cart extends AbstractEntity {
 
-    private Long customerId;
+    private Long customer;
 
     @NotNull
     @Column(nullable = false)

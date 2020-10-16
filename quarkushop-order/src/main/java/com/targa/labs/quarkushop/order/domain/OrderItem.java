@@ -28,6 +28,7 @@ public class OrderItem extends AbstractEntity {
     @Column(name = "quantity", nullable = false)
     private Long quantity;
 
+    @Column(name = "product_id")
     private Long productId;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -23,7 +23,7 @@ public class CartService {
     public static CartDto mapToDto(Cart cart) {
         return new CartDto(
                 cart.getId(),
-                cart.getCustomerId(),
+                cart.getCustomer(),
                 cart.getStatus().name()
         );
     }
@@ -78,7 +78,7 @@ public class CartService {
 
     public CartDto getActiveCart(Long customerId) {
         var carts = this.cartRepository
-                .findByStatusAndCustomerId(CartStatus.NEW, customerId);
+                .findByStatusAndCustomer(CartStatus.NEW, customerId);
         if (carts != null) {
 
             if (carts.size() == 1) {

@@ -6,7 +6,7 @@ create table "carts"
     "created_date"       timestamp    not null,
     "last_modified_date" timestamp,
     "status"             varchar(255) not null,
-    "customer_id"        bigint
+    "customer"           bigint
 );
 alter table "carts"
     add constraint "cart_pk" primary key ("id");

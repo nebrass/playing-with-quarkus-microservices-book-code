@@ -46,7 +46,7 @@ public class Order extends AbstractEntity {
     @Column(name = "shipped")
     private ZonedDateTime shipped;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "payment_id")
     private Long paymentId;
 
     @Embedded

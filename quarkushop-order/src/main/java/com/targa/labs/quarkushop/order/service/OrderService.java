@@ -61,7 +61,7 @@ public class OrderService {
     }
 
     public List<OrderDto> findAllByUser(Long id) {
-        return this.orderRepository.findByCartCustomerId(id)
+        return this.orderRepository.findByCartCustomer(id)
                 .stream()
                 .map(OrderService::mapToDto)
                 .collect(Collectors.toList());
