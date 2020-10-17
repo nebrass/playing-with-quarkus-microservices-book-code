@@ -1,6 +1,9 @@
 package com.targa.labs.quarkushop.customer.client;
 
 import com.targa.labs.quarkushop.commons.dto.OrderDto;
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Retry;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
