@@ -12,7 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.util.Optional;
 
-@Path("/orders")
+@Path("/api/orders")
 @RegisterRestClient
 public interface OrderRestClient {
 
@@ -28,7 +28,7 @@ public interface OrderRestClient {
     @CircuitBreaker(requestVolumeThreshold = 10, delay = 15000)
     @Retry(maxRetries = 4)
     @Timeout(500)
-    Optional<OrderDto> findByPaymentId(Long id);
+    Optional<OrderDto> findByPaymentId(@PathParam Long id);
 
     @POST
     @CircuitBreaker(requestVolumeThreshold = 10, delay = 15000)

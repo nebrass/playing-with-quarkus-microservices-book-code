@@ -3,18 +3,13 @@ package com.targa.labs.quarkushop.customer.domain;
 import com.targa.labs.quarkushop.commons.domain.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import java.util.List;
-import java.util.Set;
 
 /**
  * A Customer.

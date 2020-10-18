@@ -19,7 +19,7 @@ services:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
       - DB_VENDOR=h2
-    ports:
-      - 9080:9080
-      - 9443:9443
-      - 10990:10990
+    expose:
+      - 9080
+      - 9443
+      - 10990

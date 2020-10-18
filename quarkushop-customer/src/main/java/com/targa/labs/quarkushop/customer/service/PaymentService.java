@@ -12,7 +12,6 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,20 +31,12 @@ public class PaymentService {
         if (payment != null) {
             return new PaymentDto(
                     payment.getId(),
-                    payment.getPaypalPaymentId(),
+                    payment.getTransaction(),
                     payment.getStatus().name(),
                     orderId
             );
         }
         return null;
-    }
-
-    public List<PaymentDto> findByPriceRange(Double max) {
-        return this.paymentRepository
-                .findAllByAmountBetween(BigDecimal.ZERO, BigDecimal.valueOf(max))
-                .stream()
-                .map(payment -> mapToDto(payment, findOrderByPaymentId(payment.getId()).getId()))
-                .collect(Collectors.toList());
     }
 
     public List<PaymentDto> findAll() {
@@ -76,8 +67,8 @@ public class PaymentService {
 
         order.setStatus("PAID");
 
-        var payment = this.paymentRepository.saveAndFlush(new Payment(
-                paymentDto.getPaypalPaymentId(),
+        var payment = this.paymentRepository.save(new Payment(
+                paymentDto.getTransaction(),
                 PaymentStatus.valueOf(paymentDto.getStatus()),
                 order.getTotalPrice()
         ));

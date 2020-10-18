@@ -54,10 +54,4 @@ public class PaymentResource {
     public void delete(@PathParam("id") Long id) {
         this.paymentService.delete(id);
     }
-
-    @GET
-    @Path("/price/{price}")
-    public List<PaymentDto> findPaymentsByAmountRangeMax(@PathParam("price") double max) {
-        return this.paymentService.findByPriceRange(max);
-    }
 }

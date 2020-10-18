@@ -27,8 +27,7 @@ import java.math.BigDecimal;
 public class Payment extends AbstractEntity {
 
     @NotNull
-    @Column(name = "paypal_payment_id")
-    private String paypalPaymentId;
+    private String transaction;
 
     @NotNull
     @Enumerated(EnumType.STRING)

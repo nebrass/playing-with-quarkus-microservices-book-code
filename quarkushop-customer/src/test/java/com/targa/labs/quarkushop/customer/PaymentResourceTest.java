@@ -4,7 +4,10 @@ import com.targa.labs.quarkushop.commons.utils.KeycloakRealmResource;
 import com.targa.labs.quarkushop.commons.utils.TestContainerResource;
 import com.targa.labs.quarkushop.customer.domain.enums.PaymentStatus;
 import io.quarkus.test.common.QuarkusTestResource;
+import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.TestProfile;
+import io.quarkus.test.junit.mockito.InjectMock;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -21,11 +24,10 @@ import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
 import static javax.ws.rs.core.Response.Status.UNAUTHORIZED;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@DisabledOnNativeImage
 @QuarkusTest
 @QuarkusTestResource(TestContainerResource.class)
 @QuarkusTestResource(KeycloakRealmResource.class)
@@ -57,7 +59,7 @@ class PaymentResourceTest {
         var requestParams = new HashMap<>();
 
         requestParams.put("orderId", 4);
-        requestParams.put("paypalPaymentId", "anotherPaymentId");
+        requestParams.put("transaction", "anotherPaymentId");
         requestParams.put("status", PaymentStatus.PENDING);
 
         given().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
@@ -70,12 +72,6 @@ class PaymentResourceTest {
     @Test
     void testDelete() {
         delete("/payments/1").then()
-                .statusCode(UNAUTHORIZED.getStatusCode());
-    }
-
-    @Test
-    void testFindByRangeMax() {
-        get("/payments/price/800").then()
                 .statusCode(UNAUTHORIZED.getStatusCode());
     }
 
@@ -106,7 +102,7 @@ class PaymentResourceTest {
 
         assertEquals(4, response.get("id"));
         assertEquals(ACCEPTED.name(), response.get("status"));
-        assertEquals("paymentId", response.get("paypalPaymentId"));
+        assertEquals("paymentId", response.get("transaction"));
         assertEquals(5, response.get("orderId"));
     }
 
@@ -115,7 +111,7 @@ class PaymentResourceTest {
         var requestParams = new HashMap<>();
 
         requestParams.put("orderId", 4);
-        requestParams.put("paypalPaymentId", "anotherPaymentId");
+        requestParams.put("transaction", "anotherPaymentId");
         requestParams.put("status", PaymentStatus.PENDING);
 
         var response = given()
@@ -132,7 +128,7 @@ class PaymentResourceTest {
         var createdPaymentId = (Integer) response.get("id");
         assertThat(createdPaymentId).isNotZero();
         assertThat(response).containsEntry("orderId", 4)
-                .containsEntry("paypalPaymentId", "anotherPaymentId")
+                .containsEntry("transaction", "anotherPaymentId")
                 .containsEntry("status", PaymentStatus.PENDING.name());
 
         given().when()
@@ -147,7 +143,7 @@ class PaymentResourceTest {
         var requestParams = new HashMap<>();
 
         requestParams.put("orderId", 4);
-        requestParams.put("paypalPaymentId", "anotherPaymentId");
+        requestParams.put("transaction", "anotherPaymentId");
         requestParams.put("status", PaymentStatus.PENDING);
 
         var createdPaymentId = given()
@@ -166,16 +162,6 @@ class PaymentResourceTest {
                 .delete("/payments/" + createdPaymentId)
                 .then()
                 .statusCode(NO_CONTENT.getStatusCode());
-    }
-
-    @Test
-    void testFindByRangeMaxWithAdminRole() {
-        given().when()
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + ADMIN_BEARER_TOKEN)
-                .get("/payments/price/800")
-                .then()
-                .statusCode(OK.getStatusCode())
-                .body("size()", is(greaterThanOrEqualTo(0)));
     }
 
     @Test
@@ -200,7 +186,7 @@ class PaymentResourceTest {
 
         assertEquals(4, response.get("id"));
         assertEquals(ACCEPTED.name(), response.get("status"));
-        assertEquals("paymentId", response.get("paypalPaymentId"));
+        assertEquals("paymentId", response.get("transaction"));
         assertEquals(5, response.get("orderId"));
     }
 
@@ -209,7 +195,7 @@ class PaymentResourceTest {
         var requestParams = new HashMap<>();
 
         requestParams.put("orderId", 5);
-        requestParams.put("paypalPaymentId", "anotherPaymentId");
+        requestParams.put("transaction", "anotherPaymentId");
         requestParams.put("status", PaymentStatus.PENDING);
 
         var response = given()
@@ -226,7 +212,7 @@ class PaymentResourceTest {
         var createdPaymentId = (Integer) response.get("id");
         assertThat(createdPaymentId).isNotZero();
         assertThat(response).containsEntry("orderId", 5)
-                .containsEntry("paypalPaymentId", "anotherPaymentId")
+                .containsEntry("transaction", "anotherPaymentId")
                 .containsEntry("status", PaymentStatus.PENDING.name());
 
         given().when()
@@ -241,7 +227,7 @@ class PaymentResourceTest {
         var requestParams = new HashMap<>();
 
         requestParams.put("orderId", 5);
-        requestParams.put("paypalPaymentId", "anotherPaymentId");
+        requestParams.put("transaction", "anotherPaymentId");
         requestParams.put("status", PaymentStatus.PENDING);
 
         var createdPaymentId = given()
@@ -266,15 +252,5 @@ class PaymentResourceTest {
                 .delete("/payments/" + createdPaymentId)
                 .then()
                 .statusCode(NO_CONTENT.getStatusCode());
-    }
-
-    @Test
-    void testFindByRangeMaxWithUserRole() {
-        given().when()
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + USER_BEARER_TOKEN)
-                .get("/payments/price/800")
-                .then()
-                .statusCode(OK.getStatusCode())
-                .body("size()", is(greaterThanOrEqualTo(0)));
     }
 }

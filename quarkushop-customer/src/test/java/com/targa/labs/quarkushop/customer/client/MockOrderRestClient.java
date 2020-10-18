@@ -1,8 +1,6 @@
-package com.targa.labs.quarkushop.customer.utils;
-
+package com.targa.labs.quarkushop.customer.client;
 
 import com.targa.labs.quarkushop.commons.dto.OrderDto;
-import com.targa.labs.quarkushop.customer.client.OrderRestClient;
 import io.quarkus.test.Mock;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 

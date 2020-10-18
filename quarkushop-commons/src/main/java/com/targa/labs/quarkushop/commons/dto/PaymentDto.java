@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PaymentDto {
     private Long id;
-    private String paypalPaymentId;
+    private String transaction;
     private String status;
     private Long orderId;
 }

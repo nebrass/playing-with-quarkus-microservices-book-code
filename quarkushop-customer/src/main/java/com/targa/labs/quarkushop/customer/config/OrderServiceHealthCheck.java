@@ -21,7 +21,7 @@ import java.time.Duration;
 @ApplicationScoped
 public class OrderServiceHealthCheck implements HealthCheck {
 
-    @ConfigProperty(name = "order-service.url", defaultValue = "false")
+    @ConfigProperty(name = "order-client/mp-rest/url", defaultValue = "false")
     Provider<String> orderServiceUrl;
 
     @Override
