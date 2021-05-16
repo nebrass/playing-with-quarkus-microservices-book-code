@@ -1,7 +1,7 @@
 package com.targa.labs.quarkushop.order.service;
 
-import com.targa.labs.quarkushop.commons.dto.AddressDto;
 import com.targa.labs.quarkushop.order.domain.Address;
+import com.targa.labs.quarkushop.order.dto.AddressDto;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

@@ -1,4 +1,4 @@
-logstashConfig: 
+logstashConfig:
   logstash.yml: |
     http.host: "0.0.0.0"
     xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch-master:9200" ]
@@ -23,7 +23,7 @@ logstashPipeline:
       }
     }
 service:
-  annotations: {}
+  annotations: { }
   type: ClusterIP
   ports:
     - name: filebeat
@@ -33,7 +33,7 @@ service:
     - name: api
       port: 9600
       protocol: TCP
-      targetPort: 9600  
+      targetPort: 9600
     - name: gelf
       port: 12201
       protocol: UDP

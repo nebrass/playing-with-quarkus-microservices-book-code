@@ -1,18 +1,12 @@
 package com.targa.labs.quarkushop.customer.web;
 
-import com.targa.labs.quarkushop.commons.dto.CustomerDto;
+import com.targa.labs.quarkushop.customer.dto.CustomerDto;
 import com.targa.labs.quarkushop.customer.service.CustomerService;
 import io.quarkus.security.Authenticated;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -21,7 +15,6 @@ import java.util.List;
  */
 
 @Path("/customers")
-@Produces(MediaType.APPLICATION_JSON)
 @Authenticated
 @Tag(name = "customer", description = "All the customer methods")
 public class CustomerResource {

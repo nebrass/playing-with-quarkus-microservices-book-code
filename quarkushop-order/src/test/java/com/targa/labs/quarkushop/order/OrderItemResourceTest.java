@@ -14,9 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-import static javax.ws.rs.core.Response.Status.NO_CONTENT;
-import static javax.ws.rs.core.Response.Status.OK;
-import static javax.ws.rs.core.Response.Status.UNAUTHORIZED;
+import static javax.ws.rs.core.Response.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @QuarkusTest
@@ -24,10 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @QuarkusTestResource(ContextTestResource.class)
 class OrderItemResourceTest {
 
+    private static final AtomicInteger COUNTER = new AtomicInteger(100);
     static String ADMIN_BEARER_TOKEN;
     static String USER_BEARER_TOKEN;
-
-    private static final AtomicInteger COUNTER = new AtomicInteger(100);
 
     @BeforeAll
     static void init() {

@@ -1,6 +1,6 @@
 package com.targa.labs.quarkushop.order.client;
 
-import com.targa.labs.quarkushop.commons.dto.ProductDto;
+import com.targa.labs.quarkushop.order.dto.ProductDto;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;

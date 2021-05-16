@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.commons.dto;
+package com.targa.labs.quarkushop.customer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentDto {
+public class CartDto {
     private Long id;
-    private String transaction;
+    private Long customer;
     private String status;
-    private Long orderId;
 }

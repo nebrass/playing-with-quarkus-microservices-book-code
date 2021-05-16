@@ -1,19 +1,13 @@
 package com.targa.labs.quarkushop.order.web;
 
-import com.targa.labs.quarkushop.commons.dto.OrderDto;
+import com.targa.labs.quarkushop.order.dto.OrderDto;
 import com.targa.labs.quarkushop.order.service.OrderService;
 import io.quarkus.security.Authenticated;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -23,7 +17,6 @@ import java.util.List;
 
 @Authenticated
 @Path("/orders")
-@Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "order", description = "All the order methods")
 public class OrderResource {
 

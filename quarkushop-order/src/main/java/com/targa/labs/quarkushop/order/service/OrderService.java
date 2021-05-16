@@ -1,8 +1,8 @@
 package com.targa.labs.quarkushop.order.service;
 
-import com.targa.labs.quarkushop.commons.dto.OrderDto;
 import com.targa.labs.quarkushop.order.domain.Order;
 import com.targa.labs.quarkushop.order.domain.enums.OrderStatus;
+import com.targa.labs.quarkushop.order.dto.OrderDto;
 import com.targa.labs.quarkushop.order.repository.CartRepository;
 import com.targa.labs.quarkushop.order.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;

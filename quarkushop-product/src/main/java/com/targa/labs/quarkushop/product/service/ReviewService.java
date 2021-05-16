@@ -1,7 +1,7 @@
 package com.targa.labs.quarkushop.product.service;
 
-import com.targa.labs.quarkushop.commons.dto.ReviewDto;
 import com.targa.labs.quarkushop.product.domain.Review;
+import com.targa.labs.quarkushop.product.dto.ReviewDto;
 import com.targa.labs.quarkushop.product.repository.ProductRepository;
 import com.targa.labs.quarkushop.product.repository.ReviewRepository;
 import lombok.extern.slf4j.Slf4j;

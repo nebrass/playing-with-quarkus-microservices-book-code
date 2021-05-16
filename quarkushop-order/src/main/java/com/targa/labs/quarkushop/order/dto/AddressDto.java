@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.commons.dto;
+package com.targa.labs.quarkushop.order.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,3 +20,4 @@ public class AddressDto {
     @Size(min = 2, max = 2)
     private String country;
 }
+

@@ -1,7 +1,7 @@
 package com.targa.labs.quarkushop.order;
 
-import com.targa.labs.quarkushop.commons.dto.AddressDto;
 import com.targa.labs.quarkushop.order.domain.Address;
+import com.targa.labs.quarkushop.order.dto.AddressDto;
 import com.targa.labs.quarkushop.order.service.AddressService;
 import org.junit.jupiter.api.Test;
 

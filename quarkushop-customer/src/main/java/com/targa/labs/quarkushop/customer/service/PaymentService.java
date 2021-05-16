@@ -1,10 +1,10 @@
 package com.targa.labs.quarkushop.customer.service;
 
-import com.targa.labs.quarkushop.commons.dto.OrderDto;
-import com.targa.labs.quarkushop.commons.dto.PaymentDto;
 import com.targa.labs.quarkushop.customer.client.OrderRestClient;
 import com.targa.labs.quarkushop.customer.domain.Payment;
 import com.targa.labs.quarkushop.customer.domain.enums.PaymentStatus;
+import com.targa.labs.quarkushop.customer.dto.OrderDto;
+import com.targa.labs.quarkushop.customer.dto.PaymentDto;
 import com.targa.labs.quarkushop.customer.repository.PaymentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -60,7 +60,7 @@ public class PaymentService {
     public PaymentDto create(PaymentDto paymentDto) {
         log.debug("Request to create Payment : {}", paymentDto);
 
-        var order =
+        OrderDto order =
                 this.orderRestClient
                         .findById(paymentDto.getOrderId())
                         .orElseThrow(() -> new IllegalStateException("The Order does not exist!"));

@@ -1,7 +1,7 @@
 package com.targa.labs.quarkushop.customer.service;
 
-import com.targa.labs.quarkushop.commons.dto.CustomerDto;
 import com.targa.labs.quarkushop.customer.domain.Customer;
+import com.targa.labs.quarkushop.customer.dto.CustomerDto;
 import com.targa.labs.quarkushop.customer.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 

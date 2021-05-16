@@ -1,7 +1,7 @@
 apiVersion: getambassador.io/v2
-kind:  Mapping
+kind: Mapping
 metadata:
-  name:  mapping-quarkushop-user
+  name: mapping-quarkushop-user
 spec:
   prefix: /user/
   service: quarkushop-user.default:8080

@@ -1,19 +1,13 @@
 package com.targa.labs.quarkushop.product.web;
 
-import com.targa.labs.quarkushop.commons.dto.ReviewDto;
+import com.targa.labs.quarkushop.product.dto.ReviewDto;
 import com.targa.labs.quarkushop.product.service.ReviewService;
 import io.quarkus.security.Authenticated;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -21,7 +15,6 @@ import java.util.List;
  * @author Nebrass Lamouchi
  */
 @Path("/reviews")
-@Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "review", description = "All the review methods")
 public class ReviewResource {
 

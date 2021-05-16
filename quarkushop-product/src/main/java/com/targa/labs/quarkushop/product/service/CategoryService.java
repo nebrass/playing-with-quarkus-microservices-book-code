@@ -1,8 +1,8 @@
 package com.targa.labs.quarkushop.product.service;
 
-import com.targa.labs.quarkushop.commons.dto.CategoryDto;
-import com.targa.labs.quarkushop.commons.dto.ProductDto;
 import com.targa.labs.quarkushop.product.domain.Category;
+import com.targa.labs.quarkushop.product.dto.CategoryDto;
+import com.targa.labs.quarkushop.product.dto.ProductDto;
 import com.targa.labs.quarkushop.product.repository.CategoryRepository;
 import com.targa.labs.quarkushop.product.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;

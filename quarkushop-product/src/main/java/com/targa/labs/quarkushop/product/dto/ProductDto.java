@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.commons.dto;
+package com.targa.labs.quarkushop.product.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

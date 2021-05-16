@@ -1,6 +1,5 @@
 package com.targa.labs.quarkushop.order;
 
-import com.targa.labs.quarkushop.commons.utils.KeycloakRealmResource;
 import com.targa.labs.quarkushop.commons.utils.TestContainerResource;
 import com.targa.labs.quarkushop.order.domain.enums.CartStatus;
 import com.targa.labs.quarkushop.order.util.ContextTestResource;
@@ -16,18 +15,10 @@ import javax.ws.rs.core.HttpHeaders;
 import java.sql.SQLException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static io.restassured.RestAssured.delete;
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.post;
-import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
-import static javax.ws.rs.core.Response.Status.NO_CONTENT;
-import static javax.ws.rs.core.Response.Status.OK;
-import static javax.ws.rs.core.Response.Status.UNAUTHORIZED;
+import static io.restassured.RestAssured.*;
+import static javax.ws.rs.core.Response.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.emptyOrNullString;
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.*;
 
 @DisabledOnNativeImage
 @QuarkusTest
@@ -40,12 +31,9 @@ class CartResourceTest {
 
     private static final String DELETE_WRONG_CART_IN_DB =
             "delete from carts where id = 9999";
-
+    private static final AtomicInteger COUNTER = new AtomicInteger(100);
     static String ADMIN_BEARER_TOKEN;
     static String USER_BEARER_TOKEN;
-
-    private static final AtomicInteger COUNTER = new AtomicInteger(100);
-
     @Inject
     DataSource dataSource;
 

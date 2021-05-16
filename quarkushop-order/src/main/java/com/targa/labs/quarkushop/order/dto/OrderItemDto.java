@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.commons.dto;
+package com.targa.labs.quarkushop.order.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReviewDto {
+public class OrderItemDto {
     private Long id;
-    private String title;
-    private String description;
-    private Long rating;
+    private Long quantity;
+    private Long productId;
+    private Long orderId;
 }

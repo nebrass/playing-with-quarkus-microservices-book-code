@@ -1,19 +1,13 @@
 package com.targa.labs.quarkushop.customer.web;
 
-import com.targa.labs.quarkushop.commons.dto.PaymentDto;
+import com.targa.labs.quarkushop.customer.dto.PaymentDto;
 import com.targa.labs.quarkushop.customer.service.PaymentService;
 import io.quarkus.security.Authenticated;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -23,7 +17,6 @@ import java.util.List;
 
 @Authenticated
 @Path("/payments")
-@Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "payment", description = "All the payment methods")
 public class PaymentResource {
 

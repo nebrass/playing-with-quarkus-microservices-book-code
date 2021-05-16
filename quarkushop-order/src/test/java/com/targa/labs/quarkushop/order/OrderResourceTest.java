@@ -16,15 +16,9 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static io.restassured.RestAssured.given;
-import static javax.ws.rs.core.Response.Status.FORBIDDEN;
-import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
-import static javax.ws.rs.core.Response.Status.NO_CONTENT;
-import static javax.ws.rs.core.Response.Status.OK;
-import static javax.ws.rs.core.Response.Status.UNAUTHORIZED;
+import static javax.ws.rs.core.Response.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.emptyOrNullString;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.Is.is;
 
 @QuarkusTest
@@ -32,10 +26,9 @@ import static org.hamcrest.core.Is.is;
 @QuarkusTestResource(ContextTestResource.class)
 class OrderResourceTest {
 
+    private static final AtomicInteger COUNTER = new AtomicInteger(100);
     static String ADMIN_BEARER_TOKEN;
     static String USER_BEARER_TOKEN;
-
-    private static final AtomicInteger COUNTER = new AtomicInteger(100);
 
     @BeforeAll
     static void init() {
@@ -208,7 +201,7 @@ class OrderResourceTest {
         assertThat(cartResponse.get("id")).isNotNull();
         assertThat(cartResponse).containsEntry("status", CartStatus.NEW.name());
 
-        var customerResponse = (Integer )cartResponse.get("customer");
+        var customerResponse = (Integer) cartResponse.get("customer");
         assertThat(customerResponse).isEqualTo(newCustomerId);
 
         given().when()
