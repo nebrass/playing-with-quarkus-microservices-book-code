@@ -11,7 +11,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -29,7 +28,7 @@ public class UserResource {
     @POST
     @Path("/access-token")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getAccessToken(@QueryParam("username") String username, @QueryParam("password") String password) throws IOException, InterruptedException {
+    public String getAccessToken(@QueryParam("username") String username, @QueryParam("password") String password) {
         return tokenService.getAccessToken(username, password);
     }
 

@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
-import org.eclipse.microprofile.health.HealthCheckResponseBuilder;
 import org.eclipse.microprofile.health.Liveness;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -27,8 +26,7 @@ public class OrderServiceHealthCheck implements HealthCheck {
     @Override
     public HealthCheckResponse call() {
 
-        HealthCheckResponseBuilder responseBuilder =
-                HealthCheckResponse.named("Order Service connection health check");
+        var responseBuilder = HealthCheckResponse.named("Order Service connection health check");
 
         try {
             orderServiceConnectionVerification();
@@ -41,11 +39,11 @@ public class OrderServiceHealthCheck implements HealthCheck {
     }
 
     private void orderServiceConnectionVerification() {
-        HttpClient httpClient = HttpClient.newBuilder()
+        var httpClient = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofMillis(3000))
                 .build();
 
-        HttpRequest request = HttpRequest.newBuilder()
+        var request = HttpRequest.newBuilder()
                 .GET()
                 .uri(URI.create(orderServiceUrl.get() + "/health"))
                 .build();

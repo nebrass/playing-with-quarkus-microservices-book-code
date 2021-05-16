@@ -96,8 +96,6 @@ public class OrderService {
         var order = this.orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Order with ID[" + id + "] cannot be found!"));
 
-        //Optional.ofNullable(order.getPayment()).ifPresent(paymentRepository::delete);
-
         orderRepository.delete(order);
     }
 

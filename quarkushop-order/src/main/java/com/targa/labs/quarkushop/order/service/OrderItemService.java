@@ -25,7 +25,6 @@ public class OrderItemService {
     @Inject
     OrderRepository orderRepository;
 
-    @Inject
     @RestClient
     ProductRestClient productRestClient;
 

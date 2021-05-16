@@ -1,6 +1,5 @@
 package com.targa.labs.quarkushop.customer.domain;
 
-import com.targa.labs.quarkushop.commons.domain.AbstractEntity;
 import com.targa.labs.quarkushop.customer.domain.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

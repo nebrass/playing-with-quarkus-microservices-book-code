@@ -1,6 +1,5 @@
 package com.targa.labs.quarkushop.product.domain;
 
-import com.targa.labs.quarkushop.commons.domain.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

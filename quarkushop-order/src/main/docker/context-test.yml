@@ -37,8 +37,8 @@ services:
       - 8080:8080
   postgresql-db:
     image: postgres:13
-    volumes:
-      - /opt/postgres-volume:/var/lib/postgresql/data
+    #volumes:
+    #  - /opt/postgres-volume:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=developer
       - POSTGRES_PASSWORD=p4SSW0rd

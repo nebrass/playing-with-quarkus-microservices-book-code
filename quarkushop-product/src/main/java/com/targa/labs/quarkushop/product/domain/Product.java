@@ -1,6 +1,5 @@
 package com.targa.labs.quarkushop.product.domain;
 
-import com.targa.labs.quarkushop.commons.domain.AbstractEntity;
 import com.targa.labs.quarkushop.product.domain.enums.ProductStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;

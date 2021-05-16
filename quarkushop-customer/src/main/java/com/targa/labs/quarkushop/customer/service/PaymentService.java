@@ -23,7 +23,6 @@ public class PaymentService {
     @Inject
     PaymentRepository paymentRepository;
 
-    @Inject
     @RestClient
     OrderRestClient orderRestClient;
 

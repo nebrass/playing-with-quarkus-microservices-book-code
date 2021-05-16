@@ -1,4 +1,4 @@
-package com.targa.labs.quarkushop.commons.domain;
+package com.targa.labs.quarkushop.customer.domain;
 
 import lombok.Getter;
 import lombok.Setter;
